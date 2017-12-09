@@ -5,8 +5,8 @@ public final class Runner {
 
   public static int[][] getNewWorld(int[][] world) {
     int[][] newWorld = new int[world.length][world[0].length];
-    for (int rowIndex = 1; rowIndex < world.length - 1; rowIndex++) {
-      for (int columnIndex = 1; columnIndex < world[0].length - 1; columnIndex++) {
+    for (int rowIndex = 0; rowIndex < world.length; rowIndex++) {
+      for (int columnIndex = 0; columnIndex < world[0].length; columnIndex++) {
         int currentState = world[rowIndex][columnIndex];
         int neighboursCount = getNeighboursCount(world, rowIndex, columnIndex);
         newWorld[rowIndex][columnIndex] = getNewState(currentState, neighboursCount);
@@ -23,7 +23,9 @@ public final class Runner {
       for (int[] offset : OFFSETS) {
         int newRowIndex = rowIndex + offset[0];
         int newColumnIndex = columnIndex + offset[1];
-        count += world[newRowIndex][newColumnIndex];
+        if (newRowIndex >= 0 && newRowIndex < world.length && newColumnIndex >= 0 && newColumnIndex < world[0].length) {
+          count += world[newRowIndex][newColumnIndex];
+        }
       }
     return count;
   }

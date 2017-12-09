@@ -39,10 +39,10 @@ class GolTest(unittest.TestCase):
                         [0, 0, 0]]
 
   def testWillBeLive(self):
-    self.assertEqual(DEAD, gol.will_be_live(LIVE, num_neighbours=1))
-    self.assertEqual(DEAD, gol.will_be_live(LIVE, num_neighbours=0))
-    self.assertEqual(LIVE, gol.will_be_live(LIVE, num_neighbours=3))
-    self.assertEqual(DEAD, gol.will_be_live(LIVE, num_neighbours=4))
+    self.assertEqual(DEAD, gol.get_new_state(LIVE, num_neighbours=1))
+    self.assertEqual(DEAD, gol.get_new_state(LIVE, num_neighbours=0))
+    self.assertEqual(LIVE, gol.get_new_state(LIVE, num_neighbours=3))
+    self.assertEqual(DEAD, gol.get_new_state(LIVE, num_neighbours=4))
 
   def testGetNeighboursCount(self):
     self.assertEqual(3, gol.get_neighbours_count(self.world_1_start, 1, 2))

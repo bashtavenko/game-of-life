@@ -15,14 +15,14 @@ def compute_new_world(world):
   for row_index, row in enumerate(world):
     for column_index, cell_state in enumerate(row):
       num_neighbours = get_neighbours_count(world, row_index, column_index)
-      new_state = will_be_live(cell_state, num_neighbours)
+      new_state = get_new_state(cell_state, num_neighbours)
       new_world[row_index][column_index] = new_state
 
   return new_world
 
 
 def get_neighbours_count(world, row, column):
-  """Returns count of neighbours for the current cell."""
+  """Returns count of neighbours for the given cell."""
   count = 0
   for offset in ((1, 0), (-1, 0), (0, 1), (0, -1), (1, 1), (-1, 1), (1, -1),
                  (-1, -1)):
@@ -33,8 +33,8 @@ def get_neighbours_count(world, row, column):
   return count
 
 
-def will_be_live(is_live, num_neighbours):
-  """Returns Live if cell with given neighbours will live."""
+def get_new_state(is_live, num_neighbours):
+  """Returns state for the given cell and number of neighbours."""
   if is_live:
     return LIVE if num_neighbours == 2 or num_neighbours == 3 else DEAD
   else:

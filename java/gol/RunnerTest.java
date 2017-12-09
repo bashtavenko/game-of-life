@@ -20,6 +20,12 @@ public class RunnerTest {
                                            {0, 1, 1, 1, 0},
                                            {0, 1, 1, 1, 0},
                                            {0, 0, 0, 0, 0}};
+  private static final int[][] world3Start = {{0, 0, 1},
+                                              {1, 1, 0},
+                                              {0, 1, 0}};
+  private static final int[][] world3End = {{0, 1, 0},
+                                            {1, 1, 1},
+                                            {1, 1, 0}};
 
   @Test
   public void testGetNeighboursCount() {
@@ -45,5 +51,11 @@ public class RunnerTest {
   public void testGetNewWorld() {
     int[][] result = Runner.getNewWorld(worldStart);
     assertThat(result).isEqualTo(worldEnd);
+  }
+
+  @Test
+  public void testGetNewWorld3() {
+    int[][] result = Runner.getNewWorld(world3Start);
+    assertThat(result).isEqualTo(world3End);
   }
 }
