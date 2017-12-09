@@ -1,21 +1,20 @@
-#Conway's Game of Life   
+# Conway's Game of Life   
 
 Core [Conway's Game of Life](https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life) implementation in different languages.
 
-##Rules   
+## Rules   
 1. Live cell with fewer thatn two neighbours dies from starvation
 2. Live cell with two or three neighbours survives
 3. Live cell with more than three neighbours dies from overpopulation
 4. Dead cell with three neighbours becomes live (reproduction)
 
-##Example   
+## Example   
 ![3x3](/../images/gol3x3.jpg?raw=true "3x3")
 
-| Cell|Status|Neighbours|Next State|Note|
-| ------------- |-------------| -----|
-|1|Dead|2|Dead|Not enough neighbours to revive|
-|2|Dead|3|Live|Reproduction|
-|3|Live|1|Dead|Starvation|
+Cell|Status|Neighbours|Next State|Note
+--- |------|----------|----------|----
+1|Dead|2|Dead|Not enough neighbours to revive
+2|Dead|3|Live|Reproduction
+3|Live|1|Dead|Starvation
 
 
-No claims that this code is correct or optimal.
